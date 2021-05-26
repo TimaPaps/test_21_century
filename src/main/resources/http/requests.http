@@ -1,0 +1,47 @@
+GET http://localhost:8282/goods
+
+###
+
+POST http://localhost:8282/goods
+Content-Type: application/json
+
+{
+  "name" : "Маркер",
+  "price" : 75.0
+}
+
+###
+
+POST http://localhost:8282/goods
+Content-Type: application/json
+
+{
+  "name" : "Авторучка",
+  "price" : 94.0
+}
+
+###
+
+GET http://localhost:8282/orders
+
+###
+
+POST http://localhost:8282/orders
+Content-Type: application/json
+
+{
+  "client" : "Васильев Василий Васильевич",
+  "date" : "2021-05-26T13:35:12.196+00:00",
+  "address" : "г.Третий, ул.Четвертая, д.5"
+}
+
+###
+
+POST http://localhost:8282/orders
+Content-Type: application/json
+
+{
+  "client" : "Алексеев Алексей Алексеевич",
+  "date" : "2021-05-26T13:35:12.196+00:00",
+  "address" : "г.Четвертый, ул.Пятая, д.6"
+}
