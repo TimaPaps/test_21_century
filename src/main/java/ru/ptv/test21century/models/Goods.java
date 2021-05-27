@@ -15,6 +15,7 @@ import javax.persistence.*;
  * @version v1.0
  */
 @Data
+@ToString(exclude = "orderLines")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -40,4 +41,10 @@ public class Goods {
      */
     @Column(name = "price", nullable = false)
     private Double price;
+    /**
+     * Relationship with orderlines.
+     */
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_lines_id", referencedColumnName = "id")
+    private OrderLines orderLines;
 }

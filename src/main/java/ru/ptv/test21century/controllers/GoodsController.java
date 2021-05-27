@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.ptv.test21century.models.Goods;
 import ru.ptv.test21century.repositoryes.GoodsRepository;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -69,8 +70,6 @@ public class GoodsController implements ApplicationRunner {
             Goods goods2 = Goods.builder().name("Ластик").price(35.0).build();
             add(goods1);
             add(goods2);
-//            goodsRepository.save(goods1);
-//            goodsRepository.save(goods2);
         }
     }
 }

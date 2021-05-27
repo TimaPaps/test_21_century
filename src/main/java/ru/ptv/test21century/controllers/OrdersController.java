@@ -80,8 +80,6 @@ public class OrdersController implements ApplicationRunner {
                     .build();
             add(order1);
             add(order2);
-//            orderRepository.save(order1);
-//            orderRepository.save(order2);
         }
     }
 }
