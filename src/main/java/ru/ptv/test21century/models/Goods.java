@@ -1,9 +1,9 @@
 package ru.ptv.test21century.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
@@ -19,22 +19,25 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
+@DynamicInsert
+@DynamicUpdate
+@Table(name = "goods")
 public class Goods {
     /**
      * Goods identifier.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
     /**
      * Goods name.
      */
-    @Column(length = 50, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
     /**
      * Goods price.
      */
-    @Column(nullable = false)
+    @Column(name = "price", nullable = false)
     private Double price;
 }

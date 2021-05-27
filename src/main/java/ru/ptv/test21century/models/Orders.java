@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -20,27 +22,33 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @Entity
+@DynamicInsert
+@DynamicUpdate
+@Table(name = "orders")
 public class Orders {
     /**
      *
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
     /**
      *
      */
-    @Column(length = 100, nullable = false)
+    @Column(name = "client", length = 100, nullable = false)
     private String client;
     /**
      *
      */
-    @Column(nullable = false)
+    @Column(name = "date", nullable = false)
     private Timestamp date;
     /**
      *
      */
-    @Column(length = 100, nullable = false)
+    @Column(name = "address", length = 100, nullable = false)
     private String address;
+
+    @OneToOne(mappedBy = "orders")
+    private OrderLines orderLines;
 }
