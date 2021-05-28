@@ -5,7 +5,6 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * 25.05.2021 15:54
@@ -15,21 +14,13 @@ import java.util.Set;
  * @version v1.0
  */
 @Data
-@ToString(exclude = "goodsSet")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 @DynamicInsert
 @DynamicUpdate
-public class OrderLines {
-    /**
-     * OrderLines identifier.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
+public class OrderLines extends AbstractEntity {
     /**
      * Order identifier.
      */
@@ -51,9 +42,9 @@ public class OrderLines {
     @OneToOne(mappedBy = "orderLines")
     @JoinColumn
     private Orders orders;
-    /**
-     * Relationship with goods.
-     */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderLines")
-    private Set<Goods> goodsSet;
+//    /**
+//     * Relationship with goods.
+//     */
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderLines")
+//    private Set<Goods> goodsSet;
 }

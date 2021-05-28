@@ -12,5 +12,5 @@ import ru.ptv.test21century.models.Goods;
  * @version v1.0
  */
 @Repository
-public interface GoodsRepository extends JpaRepository<Goods, Long> {
+public interface GoodsRepository extends CommonRepository<Goods> {
 }

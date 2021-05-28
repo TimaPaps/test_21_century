@@ -12,5 +12,5 @@ import ru.ptv.test21century.models.OrderLines;
  * @version v1.0
  */
 @Repository
-public interface OrderLinesRepository extends JpaRepository<OrderLines, Long> {
+public interface OrderLinesRepository extends CommonRepository<OrderLines> {
 }

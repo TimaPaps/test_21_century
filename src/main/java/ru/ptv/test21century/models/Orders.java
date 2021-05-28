@@ -15,21 +15,13 @@ import java.sql.Timestamp;
  * @version v1.0
  */
 @Data
-@ToString(exclude = "orderLines")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 @DynamicInsert
 @DynamicUpdate
-public class Orders {
-    /**
-     * Order identifier.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
+public class Orders extends AbstractEntity {
     /**
      * Order client.
      */
@@ -45,9 +37,9 @@ public class Orders {
      */
     @Column(length = 100, nullable = false)
     private String address;
-    /**
-     * Relationship with orderLines.
-     */
-    @OneToOne(cascade = CascadeType.REFRESH)
-    private OrderLines orderLines;
+//    /**
+//     * Relationship with orderLines.
+//     */
+//    @OneToOne(cascade = CascadeType.REFRESH)
+//    private OrderLines orderLines;
 }

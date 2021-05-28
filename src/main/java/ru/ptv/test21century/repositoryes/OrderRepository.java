@@ -12,5 +12,5 @@ import ru.ptv.test21century.models.Orders;
  * @version v1.0
  */
 @Repository
-public interface OrderRepository extends JpaRepository<Orders, Long> {
+public interface OrderRepository extends CommonRepository<Orders> {
 }
