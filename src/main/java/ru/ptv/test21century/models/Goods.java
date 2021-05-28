@@ -22,29 +22,28 @@ import javax.persistence.*;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "goods")
 public class Goods {
     /**
      * Goods identifier.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Long id;
     /**
      * Goods name.
      */
-    @Column(name = "name", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     private String name;
     /**
      * Goods price.
      */
-    @Column(name = "price", nullable = false)
+    @Column(nullable = false)
     private Double price;
     /**
      * Relationship with orderlines.
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_lines_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn
     private OrderLines orderLines;
 }

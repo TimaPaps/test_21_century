@@ -45,3 +45,37 @@ Content-Type: application/json
   "date" : "2021-05-26T13:35:12.196+00:00",
   "address" : "г.Четвертый, ул.Пятая, д.6"
 }
+
+###
+
+GET http://localhost:8282/order_lines
+
+###
+
+POST http://localhost:8282/order_lines
+Content-Type: application/json
+
+{
+  "order_id" : 1,
+  "goods_id" : 1
+}
+
+###
+
+POST http://localhost:8282/order_lines
+Content-Type: application/json
+
+{
+  "order_id" : 1,
+  "goods_id" : 2
+}
+
+###
+
+POST http://localhost:8282/order_lines
+Content-Type: application/json
+
+{
+  "order_id" : 2,
+  "goods_id" : 1
+}

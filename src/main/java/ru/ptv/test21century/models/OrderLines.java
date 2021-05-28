@@ -22,35 +22,34 @@ import java.util.Set;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "order_lines")
 public class OrderLines {
     /**
      * OrderLines identifier.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Long id;
     /**
      * Order identifier.
      */
-    @Column(name = "order_id", nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private Long order_id;
     /**
      * Goods identifier.
      */
-    @Column(name = "goods_id", nullable = false)
+    @Column(nullable = false)
     private Long goods_id;
     /**
      * Count goods.
      */
-    @Column(name = "count")
+    @Column
     private Long count;
     /**
      * Relationship with orders.
      */
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = false)
+    @OneToOne(mappedBy = "orderLines")
+    @JoinColumn
     private Orders orders;
     /**
      * Relationship with goods.

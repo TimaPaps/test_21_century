@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.ptv.test21century.models.Goods;
 import ru.ptv.test21century.repositoryes.GoodsRepository;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -25,7 +24,7 @@ public class GoodsController implements ApplicationRunner {
     /**
      *
      */
-    private GoodsRepository goodsRepository;
+    private final GoodsRepository goodsRepository;
 
     @Autowired
     public GoodsController(GoodsRepository goodsRepository) {
@@ -38,7 +37,6 @@ public class GoodsController implements ApplicationRunner {
         return goods;
     }
 
-//    @PostMapping("/goods/update")
     public Goods update(@RequestBody Goods goods) {
         Goods goodsInDb = goodsRepository.getById(goods.getId());
         goodsInDb.setName(goods.getName());

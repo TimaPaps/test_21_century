@@ -26,7 +26,7 @@ public class OrdersController implements ApplicationRunner {
     /**
      *
      */
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     @Autowired
     public OrdersController(OrderRepository orderRepository) {
@@ -39,7 +39,6 @@ public class OrdersController implements ApplicationRunner {
         return orders;
     }
 
-//    @PostMapping("/orders/update")
     public Orders update(@RequestBody Orders orders) {
         Orders ordersInDb = orderRepository.getById(orders.getId());
         ordersInDb.setClient(orders.getClient());

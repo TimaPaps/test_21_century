@@ -22,33 +22,32 @@ import java.sql.Timestamp;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "orders")
 public class Orders {
     /**
      * Order identifier.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Long id;
     /**
      * Order client.
      */
-    @Column(name = "client", length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String client;
     /**
      * Order date and time.
      */
-    @Column(name = "date", nullable = false)
+    @Column(nullable = false)
     private Timestamp date;
     /**
      * Client address.
      */
-    @Column(name = "address", length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String address;
     /**
      * Relationship with orderLines.
      */
-    @OneToOne(mappedBy = "orders")
+    @OneToOne(cascade = CascadeType.REFRESH)
     private OrderLines orderLines;
 }
